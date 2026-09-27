@@ -1,0 +1,325 @@
+{
+  "name": "SortingRoom",
+  "tree": {
+    "$className": "Model",
+    "$properties": {
+      "Attributes": {
+        "DevelopmentStage": { "String": "Stage0" }
+      }
+    },
+
+    "Floor": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.12, 0.13, 0.16],
+        "Material": "Concrete",
+        "Size": [64, 1, 48],
+        "CFrame": [0, -0.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      }
+    },
+    "Ceiling": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.08, 0.09, 0.12],
+        "Material": "Concrete",
+        "Size": [64, 1, 48],
+        "CFrame": [0, 18.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      }
+    },
+    "BackWall": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.15, 0.16, 0.2],
+        "Material": "Concrete",
+        "Size": [64, 18, 1],
+        "CFrame": [0, 9, 24, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      }
+    },
+    "FrontWall": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.15, 0.16, 0.2],
+        "Material": "Concrete",
+        "Size": [64, 18, 1],
+        "CFrame": [0, 9, -24, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      }
+    },
+    "LeftWall": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.13, 0.14, 0.18],
+        "Material": "Concrete",
+        "Size": [1, 18, 48],
+        "CFrame": [-32, 9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      }
+    },
+    "RightWall": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.13, 0.14, 0.18],
+        "Material": "Concrete",
+        "Size": [1, 18, 48],
+        "CFrame": [32, 9, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      }
+    },
+
+    "PlayerSpawn": {
+      "$className": "SpawnLocation",
+      "$properties": {
+        "Anchored": true,
+        "CanCollide": true,
+        "Color": [0.24, 0.27, 0.33],
+        "Duration": 0,
+        "Material": "Metal",
+        "Neutral": true,
+        "Size": [8, 1, 6],
+        "CFrame": [0, 0.5, -17, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      }
+    },
+
+    "IncomingTable": {
+      "$className": "Model",
+      "Top": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Color": [0.26, 0.19, 0.13],
+          "Material": "WoodPlanks",
+          "Size": [14, 0.8, 7],
+          "CFrame": [0, 3.4, -3, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+        },
+        "TableLabel": {
+          "$className": "BillboardGui",
+          "$properties": {
+            "AlwaysOnTop": true,
+            "MaxDistance": 80,
+            "Size": { "UDim2": [[0, 360], [0, 80]] },
+            "StudsOffset": [0, 2.2, 0]
+          },
+          "Text": {
+            "$className": "TextLabel",
+            "$properties": {
+              "BackgroundColor3": [0.05, 0.06, 0.08],
+              "BackgroundTransparency": 0.15,
+              "BorderSizePixel": 0,
+              "Font": "GothamBold",
+              "Size": { "UDim2": [[1, 0], [1, 0]] },
+              "Text": "INCOMING PARCELS",
+              "TextColor3": [0.95, 0.92, 0.78],
+              "TextScaled": true
+            }
+          }
+        }
+      },
+      "LegLeft": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Color": [0.12, 0.13, 0.15],
+          "Material": "Metal",
+          "Size": [1, 3, 5],
+          "CFrame": [-5.5, 1.5, -3, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+        }
+      },
+      "LegRight": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Color": [0.12, 0.13, 0.15],
+          "Material": "Metal",
+          "Size": [1, 3, 5],
+          "CFrame": [5.5, 1.5, -3, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+        }
+      },
+      "ParcelPlaceholder": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Color": [0.56, 0.38, 0.2],
+          "Material": "Cardboard",
+          "Size": [3.5, 2, 2.5],
+          "CFrame": [0, 4.8, -3, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+        }
+      }
+    },
+
+    "RulesBoard": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.07, 0.08, 0.1],
+        "Material": "Metal",
+        "Size": [28, 12, 0.6],
+        "CFrame": [0, 10, 23.15, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      },
+      "RulesSurface": {
+        "$className": "SurfaceGui",
+        "$properties": {
+          "AlwaysOnTop": false,
+          "CanvasSize": [1000, 430],
+          "Face": "Front",
+          "LightInfluence": 0
+        },
+        "Text": {
+          "$className": "TextLabel",
+          "$properties": {
+            "BackgroundColor3": [0.04, 0.05, 0.07],
+            "BorderSizePixel": 0,
+            "Font": "GothamBold",
+            "Size": { "UDim2": [[1, 0], [1, 0]] },
+            "Text": "NIGHT SHIFT RULES\n\n! ISOLATE: red seal OR moving parcel\n< RETURN: unknown district OR missing stamp\n>> SEND: district A / B / C AND stamp present\n\nDanger rules always have priority.",
+            "TextColor3": [0.94, 0.94, 0.9],
+            "TextScaled": true,
+            "TextWrapped": true
+          }
+        }
+      }
+    },
+
+    "SendZone": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.12, 0.48, 0.33],
+        "Material": "Neon",
+        "Size": [16, 0.4, 9],
+        "CFrame": [-20, 0.2, 12, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      },
+      "Label": {
+        "$className": "BillboardGui",
+        "$properties": {
+          "AlwaysOnTop": true,
+          "MaxDistance": 100,
+          "Size": { "UDim2": [[0, 260], [0, 70]] },
+          "StudsOffset": [0, 3, 0]
+        },
+        "Text": {
+          "$className": "TextLabel",
+          "$properties": {
+            "BackgroundColor3": [0.04, 0.12, 0.08],
+            "BackgroundTransparency": 0.1,
+            "BorderSizePixel": 0,
+            "Font": "GothamBold",
+            "Size": { "UDim2": [[1, 0], [1, 0]] },
+            "Text": ">> SEND",
+            "TextColor3": [1, 1, 1],
+            "TextScaled": true
+          }
+        }
+      }
+    },
+    "ReturnZone": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.76, 0.47, 0.08],
+        "Material": "Neon",
+        "Size": [16, 0.4, 9],
+        "CFrame": [0, 0.2, 12, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      },
+      "Label": {
+        "$className": "BillboardGui",
+        "$properties": {
+          "AlwaysOnTop": true,
+          "MaxDistance": 100,
+          "Size": { "UDim2": [[0, 260], [0, 70]] },
+          "StudsOffset": [0, 3, 0]
+        },
+        "Text": {
+          "$className": "TextLabel",
+          "$properties": {
+            "BackgroundColor3": [0.18, 0.1, 0.02],
+            "BackgroundTransparency": 0.1,
+            "BorderSizePixel": 0,
+            "Font": "GothamBold",
+            "Size": { "UDim2": [[1, 0], [1, 0]] },
+            "Text": "< RETURN",
+            "TextColor3": [1, 1, 1],
+            "TextScaled": true
+          }
+        }
+      }
+    },
+    "IsolateZone": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "Color": [0.65, 0.08, 0.1],
+        "Material": "Neon",
+        "Size": [16, 0.4, 9],
+        "CFrame": [20, 0.2, 12, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      },
+      "Label": {
+        "$className": "BillboardGui",
+        "$properties": {
+          "AlwaysOnTop": true,
+          "MaxDistance": 100,
+          "Size": { "UDim2": [[0, 260], [0, 70]] },
+          "StudsOffset": [0, 3, 0]
+        },
+        "Text": {
+          "$className": "TextLabel",
+          "$properties": {
+            "BackgroundColor3": [0.18, 0.02, 0.03],
+            "BackgroundTransparency": 0.1,
+            "BorderSizePixel": 0,
+            "Font": "GothamBold",
+            "Size": { "UDim2": [[1, 0], [1, 0]] },
+            "Text": "! ISOLATE",
+            "TextColor3": [1, 1, 1],
+            "TextScaled": true
+          }
+        }
+      }
+    },
+
+    "MainLight": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Color": [0.82, 0.86, 1],
+        "Material": "Neon",
+        "Size": [18, 0.3, 3],
+        "CFrame": [0, 17.8, -3, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      },
+      "Light": {
+        "$className": "PointLight",
+        "$properties": {
+          "Brightness": 2.5,
+          "Color": [0.78, 0.84, 1],
+          "Enabled": true,
+          "Range": 38,
+          "Shadows": false
+        }
+      }
+    },
+    "RulesLight": {
+      "$className": "Part",
+      "$properties": {
+        "Anchored": true,
+        "CanCollide": false,
+        "Color": [1, 0.83, 0.55],
+        "Material": "Neon",
+        "Size": [14, 0.3, 1],
+        "CFrame": [0, 16.5, 21.8, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+      },
+      "Light": {
+        "$className": "PointLight",
+        "$properties": {
+          "Brightness": 1.5,
+          "Color": [1, 0.78, 0.48],
+          "Enabled": true,
+          "Range": 18,
+          "Shadows": false
+        }
+      }
+    }
+  }
+}
