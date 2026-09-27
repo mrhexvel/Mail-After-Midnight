@@ -1,6 +1,6 @@
 # Mail After Midnight
 
-Rojo project for a mobile-first Roblox sorting game. The current implementation covers development stage 0: a static test room, shared tuning configuration, and runnable client/server entry points.
+Rojo project for a mobile-first Roblox sorting game. The current implementation covers development stage 1: a server-authoritative round loop with five parcel templates, classification, temporary rewards, error limits, replay, and responsive UI.
 
 ## Prerequisites
 
@@ -32,16 +32,35 @@ rojo serve default.project.json
 
 Connect the Studio Rojo plugin to `localhost:34872`. The project restricts live sync to the place ID above to reduce the risk of syncing into the wrong experience.
 
-## Stage 0 Manual Test
+## Stage 1 Manual Test
 
 1. Build the place or connect the Rojo plugin.
-2. Confirm `Workspace.SortingRoom` contains the incoming table, rules board, three decision zones, walls, lights, and `PlayerSpawn`.
-3. Press **Play**. Confirm the character spawns inside the room and can walk between the table, rules board, and all three zones.
-4. Confirm the board text and the `SEND`, `RETURN`, and `ISOLATE` labels are readable without relying only on pad color.
-5. Open **View > Output**. Confirm both `Client ready` and `Stage 0 room ready` appear without red errors.
-6. Stop the playtest and use Studio's device emulator with a narrow phone preset. Repeat the visibility and movement checks.
+2. Press **Play** and confirm the preparation countdown starts at ten seconds.
+3. After the active shift starts, wait no more than ten seconds for a parcel to appear on the incoming table.
+4. Approach the parcel and activate **Examine parcel**. Confirm the inspection card shows district, stamp field, seal, movement, and all three action buttons.
+5. Resolve several parcels. A correct answer must add one personal correct result and two tokens. A wrong answer must add one error and display the rule that determined the answer.
+6. Verify the priority cases: red seal plus missing stamp is isolated; movement plus an unknown district is isolated.
+7. Make five incorrect choices. Confirm the office closes once, no completion bonus is awarded, and the results screen appears.
+8. Select **Play Again** several times quickly. Confirm exactly one new preparation phase starts and all temporary counters and parcel objects reset.
+9. Complete a shift by timer. Confirm the results include the ten-token completion bonus.
+10. Open **View > Output** and confirm there are no red runtime errors.
+11. Repeat the full interaction using Studio's device emulator with a narrow landscape phone preset. Confirm the HUD, parcel card, rules, results, and all action buttons remain visible and usable.
 
-Stage 0 contains no parcel interaction or round loop yet. The box on the table is a visual placeholder.
+Stage 1 intentionally uses one active parcel at a time. Queueing up to three parcels, multi-user claims, atmospheric events, persistence, tutorial flow, and cosmetics belong to later stages.
+
+## Unit Tests
+
+The project includes isolated tests for parcel classification and reward rules under `ServerStorage.UnitTest`.
+
+1. Start a Play session.
+2. Open the server Command Bar.
+3. Run:
+
+```lua
+require(game.ServerStorage.UnitTest.RunUnitTest)()
+```
+
+The expected summary is `11 run, 11 passed, 0 failed`. `ServerScriptService.UnitTestRunner` is disabled by default; it can be enabled temporarily to run the same suite at server startup.
 
 ## Multiplayer Test Setup
 
@@ -65,9 +84,12 @@ Use **File > Publish to Roblox As...** and select a private test experience owne
 ## Project Layout
 
 ```text
-src/client/init.client.luau  Client entry point
-src/server/init.server.luau  Server entry point
-src/shared/Config.luau       Central gameplay tuning
+src/client/                  Client controller and responsive UI
+src/server/Data/             Server-only parcel templates
+src/server/Logic/            Pure server reward rules
+src/server/Services/         Networking, parcels, and round state
+src/shared/                  Shared config, protocol, strings, and parcel rules
+src/tests/                   Server-only unit-test harness and cases
 src/world.project.json       Static sorting-room model
 ```
 

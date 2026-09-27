@@ -1,6 +1,8 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local NetworkService = require(script.Services.NetworkService)
+local RoundService = require(script.Services.RoundService)
 
-local Config = require(ReplicatedStorage.Shared.Config)
+local room = workspace:WaitForChild("SortingRoom")
+local remotes = NetworkService.create()
+local roundService = RoundService.new(remotes, room)
 
-workspace:WaitForChild("SortingRoom")
-print(string.format("[%s] Stage 0 room ready", Config.GameName))
+roundService:start()

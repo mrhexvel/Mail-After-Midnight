@@ -1,5 +1,3 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local GameController = require(script.Controllers.GameController)
 
-local Config = require(ReplicatedStorage.Shared.Config)
-
-print(string.format("[%s] Client ready", Config.GameName))
+GameController.start()

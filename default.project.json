@@ -35,6 +35,9 @@
 
     "Workspace": {
       "$ignoreUnknownInstances": true,
+      "$properties": {
+        "StreamingEnabled": false
+      },
       "SortingRoom": {
         "$path": "src/world.project.json"
       }
@@ -53,8 +56,21 @@
       "Server": {
         "$path": "src/server"
       },
+      "UnitTestRunner": {
+        "$path": "src/testRunner.server.luau",
+        "$properties": {
+          "Disabled": true
+        }
+      },
       "ServerPackages": {
         "$path": "ServerPackages"
+      }
+    },
+
+    "ServerStorage": {
+      "$ignoreUnknownInstances": false,
+      "UnitTest": {
+        "$path": "src/tests"
       }
     },
 

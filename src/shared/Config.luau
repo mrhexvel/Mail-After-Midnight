@@ -26,10 +26,16 @@ local Config = {
 		MaximumDuration = 20,
 		TutorialProtectionDuration = 60,
 	},
+
+	Network = {
+		RequestWindow = 1,
+		MaxRequestsPerWindow = 8,
+	},
 }
 
 table.freeze(Config.Round)
 table.freeze(Config.Rewards)
 table.freeze(Config.Events)
+table.freeze(Config.Network)
 
 return table.freeze(Config)
